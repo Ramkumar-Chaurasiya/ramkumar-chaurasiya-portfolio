@@ -75,6 +75,8 @@ h1, h2, h3 { font-family: var(--font-display); }
 .hero-tool > span { padding: 0; color: inherit; background: none; border: 0; border-radius: 0; font-size: inherit; font-weight: inherit; letter-spacing: inherit; }
 .hero-tagline { max-width: 470px; margin-bottom: 17px; color: #f4f7fb; font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 27px); font-weight: 700; letter-spacing: -.04em; line-height: 1.35; }
 .hero-opportunity { margin: 0 0 22px; color: #a7dff2; font-size: 12px; font-weight: 700; }
+.hero-location { margin: -10px 0 22px; color: #c4dbe5; font-size: 12px; font-weight: 600; }
+.hero-location span { margin-right: 5px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; }
 .button { min-height: 45px; display: inline-flex; align-items: center; justify-content: center; gap: 13px; padding: 0 17px; border: 1px solid transparent; border-radius: 5px; font-size: 12px; font-weight: 700; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
 .button:hover { transform: translateY(-2px); }
@@ -84,15 +86,37 @@ h1, h2, h3 { font-family: var(--font-display); }
 .hero .button-primary:hover { background: #08688a; }
 .button-secondary { color: var(--ink); background: #fff; border-color: var(--line); }
 .button-secondary:hover { border-color: #c5cad7; }
+.resume-button { position: relative; isolation: isolate; overflow: hidden; color: #fff; background: linear-gradient(110deg, #7148d8, #c13e91 48%, #e87539); background-size: 180% 180%; border: 0; box-shadow: 0 5px 16px rgb(161 63 153 / 25%); animation: resume-gradient 5s ease-in-out infinite; }
+.resume-button::before { position: absolute; z-index: -1; inset: 0; background: linear-gradient(105deg, transparent 25%, rgb(255 255 255 / 28%) 48%, transparent 68%); content: ""; transform: translateX(-120%); animation: resume-shine 4s ease-in-out infinite; }
+.button.resume-button:hover { background-color: #7148d8; border-color: transparent; box-shadow: 0 8px 22px rgb(161 63 153 / 38%); }
+.resume-button:focus-visible { outline: 3px solid #e875d2; outline-offset: 3px; }
+.resume-button .resume-button-label { font-size: 12px; }
+@keyframes resume-gradient { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+@keyframes resume-shine { 0%, 65% { transform: translateX(-120%); } 90%, 100% { transform: translateX(120%); } }
+.button, .nav-hire, .menu-toggle, .hire-dialog-close { transition: transform .2s cubic-bezier(.2, .7, .2, 1), box-shadow .2s ease, background-color .2s ease, border-color .2s ease, color .2s ease; }
+.button:hover, .nav-hire:hover, .menu-toggle:hover, .hire-dialog-close:hover { transform: translateY(-2px); box-shadow: 0 7px 18px rgb(3 23 39 / 20%); }
+.button:active, .nav-hire:active, .menu-toggle:active, .hire-dialog-close:active { transform: translateY(0) scale(.97); box-shadow: none; }
+.button:focus-visible, .nav-hire:focus-visible, .menu-toggle:focus-visible, .hire-dialog-close:focus-visible { outline: 3px solid #62c9ee; outline-offset: 3px; }
 .button span { font-size: 16px; }
 .social-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-.social-link { min-height: 46px; display: inline-flex; align-items: center; gap: 10px; padding: 8px 13px; color: #f4f7fb; background: rgb(255 255 255 / 9%); border: 1px solid rgb(210 228 242 / 32%); border-radius: 7px; font-size: 12px; font-weight: 700; box-shadow: 0 5px 16px rgb(0 0 0 / 12%); transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease; }
-.social-link:hover { color: #fff; background: rgb(98 201 238 / 18%); border-color: #62c9ee; transform: translateY(-2px); }
+.social-link { min-height: 46px; display: inline-flex; align-items: center; gap: 10px; padding: 8px 13px; color: #f4f7fb; background: rgb(255 255 255 / 9%); border: 1px solid rgb(130 210 241 / 58%); border-radius: 7px; font-size: 12px; font-weight: 700; box-shadow: 0 5px 16px rgb(0 0 0 / 12%); transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease, box-shadow .2s ease; animation: social-attention 2.8s ease-in-out infinite; }
+.social-link:hover { color: #fff; background: rgb(98 201 238 / 22%); border-color: #80dcff; transform: translateY(-3px); box-shadow: 0 8px 24px rgb(39 180 230 / 32%); animation-play-state: paused; }
 .social-link:focus-visible { outline: 3px solid #62c9ee; outline-offset: 3px; }
-.social-link img { width: 24px; height: 24px; object-fit: contain; }
+.social-link img { width: 24px; height: 24px; object-fit: contain; transition: transform .2s ease; }
+.social-link:hover img, .social-link:hover .social-icon-email { transform: scale(1.12) rotate(-4deg); }
 .social-icon-email { width: 24px; height: 24px; flex: 0 0 24px; color: #a7dff2; }
 .social-link span { display: inline-flex; align-items: center; gap: 7px; }
 .social-link span::after { color: #9eafbf; font-size: 13px; content: "↗"; }
+@keyframes social-attention {
+  0%, 48%, 100% { box-shadow: 0 5px 16px rgb(0 0 0 / 12%); }
+  62% { box-shadow: 0 0 0 3px rgb(98 201 238 / 16%), 0 7px 21px rgb(39 180 230 / 32%); }
+}
+.hero-actions [data-hire-trigger], .nav-hire { animation: hire-attention 2.8s ease-in-out infinite; }
+.hero-actions [data-hire-trigger]:hover, .nav-hire:hover { animation-play-state: paused; box-shadow: 0 0 0 3px rgb(98 201 238 / 22%), 0 8px 24px rgb(39 180 230 / 35%); }
+@keyframes hire-attention {
+  0%, 48%, 100% { box-shadow: 0 5px 16px rgb(0 0 0 / 12%); }
+  62% { box-shadow: 0 0 0 4px rgb(98 201 238 / 20%), 0 7px 24px rgb(39 180 230 / 36%); }
+}
 .hero-visual { position: relative; min-width: 0; justify-self: end; width: min(100%, 520px); padding: 12px 0; }
 .hero-visual { animation: hero-portrait-enter .8s .18s both cubic-bezier(.2, .7, .2, 1); }
 .hero-copy > * { animation: hero-copy-enter .55s both cubic-bezier(.2, .7, .2, 1); }
@@ -262,5 +286,7 @@ h1, h2, h3 { font-family: var(--font-display); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+  .resume-button, .resume-button::before, .social-link, .hero-actions [data-hire-trigger], .nav-hire { animation: none; }
+  .social-link { box-shadow: 0 5px 16px rgb(0 0 0 / 12%); }
   .motion-reveal { opacity: 1; transform: none; }
 }

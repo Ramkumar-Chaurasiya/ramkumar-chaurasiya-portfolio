@@ -83,6 +83,8 @@ h1, h2, h3 { font-family: var(--font-display); }
 .intro-name { margin: 0 0 8px; color: #e7f0f7; font-size: clamp(17px, 2.5vw, 21px); font-weight: 500; }
 .intro-name span { color: #fff; font-weight: 800; }
 .intro-copy { max-width: 600px; margin-bottom: 19px; color: #b7c8d6; font-size: 15px; }
+.intro-location { margin: -8px 0 19px; color: #c4dbe5; font-size: 12px; font-weight: 600; }
+.intro-location span { margin-right: 5px; }
 .intro-tags, .tag-list { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
 .intro-tags span, .tag-list li { padding: 5px 11px; color: #d8e9f2; background: rgb(255 255 255 / 6%); border: 1px solid rgb(207 230 241 / 16%); border-radius: 99px; font-size: 10px; font-weight: 700; }
 .intro-tags span:first-child, .tag-list li { color: #b5f4e9; background: rgb(112 220 206 / 8%); border-color: rgb(112 220 206 / 21%); }
@@ -126,6 +128,7 @@ h1, h2, h3 { font-family: var(--font-display); }
 .google-logo > span span:nth-child(2), .google-logo > span span:nth-child(6) { color: #ea4335; }
 .google-logo > span span:nth-child(3) { color: #fbbc05; }
 .google-logo > span span:nth-child(5) { color: #34a853; }
+.meta-logo svg { width: 30px; height: 30px; }
 .certificate-list strong, .certificate-list small { display: block; }
 .certificate-list strong { font-family: var(--font-display); font-size: 11px; font-weight: 800; }
 .certificate-list small { color: #a7b9c7; font-size: 9px; }
@@ -156,6 +159,19 @@ h1, h2, h3 { font-family: var(--font-display); }
 .page-footer { display: flex; justify-content: space-between; gap: 14px; padding: 23px 0 30px; color: #a8b8c5; font-size: 10px; }
 .page-footer a { color: #cce5e7; font-weight: 700; }
 .page-footer a:hover { color: var(--accent); }
+
+.hire-dialog { position: fixed; width: min(680px, calc(100% - 32px)); max-width: none; padding: 0; overflow: visible; color: #203442; background: #fbfcfc; border: 0; border-radius: 14px; box-shadow: 0 24px 80px rgb(0 0 0 / 45%); }
+.hire-dialog::backdrop { background: rgb(5 13 24 / 72%); backdrop-filter: blur(5px); }
+.hire-dialog-close { position: absolute; z-index: 1; top: 12px; right: 12px; width: 36px; height: 36px; display: grid; place-items: center; padding: 0; color: #203442; background: rgb(255 255 255 / 90%); border: 1px solid #dce5e2; border-radius: 50%; font-size: 24px; line-height: 1; cursor: pointer; }
+.hire-dialog-content { display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: 30px; padding: 30px; }
+.hire-dialog-photo { width: 100%; height: 310px; object-fit: cover; object-position: center; border-radius: 10px; }
+.hire-dialog-copy .eyebrow { margin: 10px 0 8px; color: #147c73; }
+.hire-dialog-emoji { font-size: 28px; }
+.hire-dialog-copy h2 { margin-bottom: 10px; color: #203442; font-family: var(--font-display); font-size: clamp(24px, 4vw, 32px); font-weight: 800; letter-spacing: -.05em; line-height: 1.2; }
+.hire-dialog-copy > p:not(.eyebrow) { margin-bottom: 20px; color: #687b83; font-size: 13px; line-height: 1.8; }
+.hire-dialog .button { min-height: 45px; display: inline-flex; align-items: center; justify-content: center; gap: 13px; padding: 0 17px; color: #fff; background: #147c73; border-radius: 5px; font-size: 12px; font-weight: 700; }
+.hire-dialog .button:hover { background: #0e625b; }
+.hire-dialog .button span { font-size: 16px; }
 
 .js-ready [data-reveal] { opacity: 0; transform: translateY(14px); transition: opacity .55s ease, transform .55s cubic-bezier(.2, .7, .25, 1); transition-delay: var(--reveal-delay, 0ms); }
 .js-ready [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
@@ -189,6 +205,9 @@ h1, h2, h3 { font-family: var(--font-display); }
   .nav-link { padding: 10px 3px; color: #626d83; font-size: 13px; }
   .nav-hire { align-self: flex-start; margin-top: 8px; }
   .menu-toggle span { background: #203442; }
+  .hire-dialog-content { grid-template-columns: 1fr; gap: 18px; padding: 20px; }
+  .hire-dialog-photo { height: min(38vh, 250px); object-position: center 35%; }
+  .hire-dialog .button { width: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
