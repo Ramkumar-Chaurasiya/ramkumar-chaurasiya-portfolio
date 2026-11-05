@@ -32,7 +32,8 @@ img { display: block; max-width: 100%; }
 .brand-copy strong { font-family: var(--font-display); font-size: 12px; font-weight: 800; letter-spacing: -.3px; white-space: nowrap; }
 .brand-copy span { margin-top: 3px; color: var(--muted); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
 .primary-nav { display: flex; align-items: center; gap: clamp(14px, 2.2vw, 29px); }
-.nav-link { position: relative; padding-block: 9px; color: #626d83; font-size: 12px; font-weight: 600; transition: color .2s ease; }
+.nav-link { position: relative; display: inline-flex; align-items: center; gap: 7px; padding-block: 9px; color: #626d83; font-size: 12px; font-weight: 600; transition: color .2s ease; }
+.nav-icon { width: 15px; height: 15px; flex: 0 0 15px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
 .nav-link:hover, .nav-link.is-active { color: var(--accent); }
 .nav-hire { padding: 10px 16px; color: #fff; background: var(--ink); border: 0; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; transition: background .2s ease, transform .2s ease; }
 .nav-hire:hover { background: var(--accent); transform: translateY(-1px); }
@@ -221,8 +222,9 @@ h1, h2, h3 { font-family: var(--font-display); }
 .hire-dialog-copy > p:not(.eyebrow) { margin-bottom: 20px; color: var(--muted); font-size: 13px; line-height: 1.8; }
 
 @media (max-width: 900px) {
-  .primary-nav { gap: 14px; }
-  .nav-link { font-size: 11px; }
+  .primary-nav { gap: 10px; }
+  .nav-link { gap: 5px; font-size: 10px; }
+  .nav-icon { width: 13px; height: 13px; flex-basis: 13px; }
   .nav-hire { padding-inline: 12px; }
   .hero { min-height: 590px; grid-template-columns: minmax(0, 1fr) minmax(0, .85fr); gap: 8px; }
   .about-layout, .activity-layout { gap: 45px; }

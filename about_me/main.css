@@ -53,7 +53,8 @@ h1, h2, h3 { font-family: var(--font-display); }
 .brand-copy strong { color: #203442; font-family: var(--font-display); font-size: 12px; font-weight: 800; letter-spacing: -.3px; white-space: nowrap; }
 .brand-copy span { margin-top: 3px; color: #687b83; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
 .primary-nav { display: flex; align-items: center; gap: clamp(14px, 2.2vw, 29px); }
-.nav-link { position: relative; padding-block: 9px; color: #626d83; font-size: 12px; font-weight: 600; transition: color .2s ease; }
+.nav-link { position: relative; display: inline-flex; align-items: center; gap: 7px; padding-block: 9px; color: #626d83; font-size: 12px; font-weight: 600; transition: color .2s ease; }
+.nav-icon { width: 15px; height: 15px; flex: 0 0 15px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
 .nav-link:hover, .nav-link.is-active { color: var(--accent); }
 .nav-hire { padding: 10px 16px; color: #fff; background: #203442; border-radius: 6px; font-size: 12px; font-weight: 700; transition: background .2s ease, transform .2s ease; }
 .nav-hire:hover { background: var(--accent); transform: translateY(-1px); }
@@ -133,7 +134,8 @@ h1, h2, h3 { font-family: var(--font-display); }
 .certificate-list strong { font-family: var(--font-display); font-size: 11px; font-weight: 800; }
 .certificate-list small { color: #a7b9c7; font-size: 9px; }
 .certificate-info { min-width: 0; flex: 1; }
-.certificate-link { flex: 0 0 auto; color: var(--accent); font-size: 9px; font-weight: 800; white-space: nowrap; }
+.certificate-actions { display: flex; flex: 0 0 auto; flex-wrap: wrap; justify-content: flex-end; gap: 5px 10px; }
+.certificate-link { color: var(--accent); font-size: 9px; font-weight: 800; white-space: nowrap; }
 .certificate-link:hover { color: #b5f4e9; }
 .card-footnote { margin: 0; color: #9fb3c1; font-size: 10px; }
 .approach-card { grid-row: span 2; }
@@ -185,6 +187,7 @@ h1, h2, h3 { font-family: var(--font-display); }
   .story-grid { grid-template-columns: 1fr; gap: 12px; }
   .story-card { padding: 21px 20px; }
   .certificate-list li { gap: 8px; padding-inline: 9px; }
+  .certificate-actions { flex-direction: column; align-items: flex-end; gap: 4px; }
   .certificate-link { font-size: 8px; }
   .connect-link { max-width: 100%; gap: 8px; font-size: 9px; }
   .approach-card { grid-row: auto; }
